@@ -30,21 +30,21 @@ function setupButtonEventHandler() {
     var easyButton = document.getElementById("easy");
     easyButton.onclick = function(evt) {      
         console.log("Easy pressed");
-        remainingJumps.text = "5 More Jumping Jacks!";
+        remainingJumps.text = "5 Jumping Jacks!";
         container.value = container.value + 1; 
     }
     
     var mediumButton = document.getElementById("medium");
     mediumButton.onclick = function(evt) {
         console.log("Medium pressed");
-        remainingJumps.text = "8 More Jumping Jacks!";
+        remainingJumps.text = "8 Jumping Jacks!";
         container.value = container.value + 1; 
     }
     
     var hardButton = document.getElementById("hard");
     hardButton.onclick = function(evt) {
         console.log("Hard pressed");
-        remainingJumps.text = "10 More Jumping Jacks!";
+        remainingJumps.text = "10 Jumping Jacks!";
         container.value = container.value + 1; 
     }
     
@@ -85,7 +85,7 @@ class JumpingJack {
     if (this.squatsRemaining <= 0) {
         var message = String("Complete!");
     } else {
-        var message = String(this.remaining) + " Squats left!";        
+        var message = String(this.remaining) + " Squats!";        
     }
     console.log("Squatting");
 
@@ -103,7 +103,7 @@ class JumpingJack {
         var message = String("Complete!");
         myanimation.animate("disable");
     } else {
-        var message = String(this.remaining) + " more jumping jacks!";        
+        var message = String(this.remaining) + " jumping jacks!";        
         myanimation.animate("enable");
         console.log("Jumping");
 
@@ -152,6 +152,10 @@ let remainingSquats = document.getElementById("remainingSquats");
 
 document.onkeypress = function(e) {
   console.log("Key pressed: " + e.key);
+  jumps.handleJump();
+  console.log("Handling jump")
+  jumps.handleSquat();
+  console.log("Handling Squat");
 }
 
 remainingJumps.onmousedown = function(evt) {      
@@ -165,8 +169,8 @@ remainingSquats.onmousedown = function(evt) {
 }
 
 
-jumps.handleJump();
-jumps.handleSquat();
+// jumps.handleJump();
+// jumps.handleSquat();
 refreshData();
 setInterval(refreshData, 100);
 
